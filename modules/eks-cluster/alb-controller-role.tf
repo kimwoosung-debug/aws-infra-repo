@@ -16,6 +16,6 @@ data "http" "iam_policy" {
 # 인라인으로 정책이 추가
 resource "aws_iam_role_policy" "controller" {
   name_prefix = "AWSLoadBalancerControllerIAMPolicy"
-  policy      = data.http.iam_policy.body
+  policy      = data.http.iam_policy.response_body
   role        = module.iam_assumable_role_alb_controller.iam_role_name
 }
